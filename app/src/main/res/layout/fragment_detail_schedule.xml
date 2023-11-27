@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.DetailScheduleFragment">
+
+    <LinearLayout
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:id="@+id/scheduleName"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="35dp"
+            android:text = "D-00 행사이름"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_weight="7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/flowerImage"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/flower_combine1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <ImageView
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/purple_paint"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"/>
+                <ImageView
+                    android:scaleType="fitCenter"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/yellow_paint"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <TextView
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/mean"
+                android:text="꽃말"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textSize="20dp"
+                android:gravity="center"
+                android:id="@+id/price"
+                android:text="1.5~2.0 won"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <ImageButton
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="150dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/buy_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>
