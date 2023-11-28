@@ -21,8 +21,7 @@ class CalendarFragment : Fragment(), UtilListener {
         UtilObject.scheduleFragment = adapter.scheduleFragment
         UtilObject.detailScheduleFragment = adapter.detailScheduleFragment
         binding.viewPager.adapter = adapter
-
-
+        binding.viewPager.isUserInputEnabled = false
 
     }
 
@@ -37,8 +36,7 @@ class CalendarFragment : Fragment(), UtilListener {
     }
 
     override fun scheduleClicked(position: Int) {
-        binding.viewPager.currentItem = 2
-        UtilObject.detailScheduleFragment.setUi(position)
+        binding.viewPager.currentItem = 1
     }
 
     override fun storeButtonClicked() {

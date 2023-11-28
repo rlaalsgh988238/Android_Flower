@@ -35,29 +35,42 @@
             android:layout_height="0dp"/>
 
         <LinearLayout
-            android:padding="4dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp">
-            <ImageButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-            <ImageButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-            <ImageButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-            <ImageButton
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
 
+            <LinearLayout
+                android:layout_marginHorizontal="40dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageButton
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/mainFragment"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+                <ImageButton
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/calendarFragment"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+                <ImageButton
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+                <ImageButton
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
         </LinearLayout>
+
+
 
     </LinearLayout>
 

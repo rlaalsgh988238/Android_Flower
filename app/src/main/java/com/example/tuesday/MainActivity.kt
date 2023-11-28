@@ -19,13 +19,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.viewPager.adapter = MainViewPagerAdapter(this)
+        binding.viewPager.isUserInputEnabled = false
 
         var intentStatus = intent.getBooleanExtra("push",false)
         if (intentStatus){
-            binding.viewPager.currentItem = 2
+            binding.viewPager.currentItem = 1
         }
 
+        binding.mainFragment.setOnClickListener {
+            binding.viewPager.currentItem = 0
+        }
 
-
+        binding.calendarFragment.setOnClickListener {
+            binding.viewPager.currentItem = 1
+        }
     }
 }
