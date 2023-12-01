@@ -7,9 +7,7 @@ import com.example.tuesday.fragment.DetailScheduleFragment
 
 object UtilObject {
     lateinit var listeningActivity: UtilListener
-
     lateinit var currentActivity: AppCompatActivity
-
     lateinit var scheduleFragment: Fragment
     lateinit var detailScheduleFragment: DetailScheduleFragment
 
@@ -17,12 +15,9 @@ object UtilObject {
         listeningActivity = listener
     }
 
-    fun getCurrentContext(){
-        var context = currentActivity
-    }
 }
 
 interface UtilListener{
     fun scheduleClicked(position: Int)
-    fun storeButtonClicked()
+    fun backButtonClicked()
 }

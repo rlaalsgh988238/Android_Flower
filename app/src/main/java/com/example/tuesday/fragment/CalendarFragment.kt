@@ -16,12 +16,7 @@ class CalendarFragment : Fragment(), UtilListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val adapter = CalendarVIewPagerAdapter(requireActivity())
-        UtilObject.scheduleFragment = adapter.scheduleFragment
-        UtilObject.detailScheduleFragment = adapter.detailScheduleFragment
-        binding.viewPager.adapter = adapter
-        binding.viewPager.isUserInputEnabled = false
+        setUI()
 
     }
 
@@ -37,9 +32,18 @@ class CalendarFragment : Fragment(), UtilListener {
 
     override fun scheduleClicked(position: Int) {
         binding.viewPager.currentItem = 1
+        setUI()
     }
 
-    override fun storeButtonClicked() {
-        binding.viewPager.currentItem = 1
+    override fun backButtonClicked() {
+        binding.viewPager.currentItem = 0
+    }
+
+    private fun setUI(){
+        val adapter = CalendarVIewPagerAdapter(requireActivity())
+        UtilObject.scheduleFragment = adapter.scheduleFragment
+        UtilObject.detailScheduleFragment = adapter.detailScheduleFragment
+        binding.viewPager.adapter = adapter
+        binding.viewPager.isUserInputEnabled = false
     }
 }

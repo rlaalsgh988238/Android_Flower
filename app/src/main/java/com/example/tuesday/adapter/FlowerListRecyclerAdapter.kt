@@ -8,11 +8,14 @@ import com.example.tuesday.R
 import com.example.tuesday.calendar.BlueTulip
 import com.example.tuesday.calendar.FlowerInterface
 import com.example.tuesday.calendar.RedRose
+import com.example.tuesday.calendar.UtilObject
 import com.example.tuesday.calendar.YellowFog
 import com.example.tuesday.databinding.FlowerPhotoItemBinding
 import com.example.tuesday.databinding.ScheduleItemBinding
 
 class FlowerListRecyclerAdapter: RecyclerView.Adapter<FlowerListRecyclerAdapter.ViewHolder>() {
+    var scheduleNum = 0
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -20,22 +23,31 @@ class FlowerListRecyclerAdapter: RecyclerView.Adapter<FlowerListRecyclerAdapter.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setUi()
-        var status = false
+        val redRoseNum = 0
+        val blueTulipNum = 1
+        val yellowFogNum = 2
+
         holder.binding.layout.setOnClickListener {
-            holder.binding.layout.setBackgroundResource(
-                if(!status){
-                    status = true
-                    R.drawable.border_line
+            when(position){
+                redRoseNum -> {
+
                 }
-                else{
-                    status = false
-                    R.drawable.no_border
+                blueTulipNum ->{
+
                 }
-            )
+                yellowFogNum -> {
+
+                }
+            }
         }
+
     }
 
     override fun getItemCount(): Int = 3
+
+    fun setSchedulePosition(position: Int){
+        scheduleNum = position
+    }
 
     class ViewHolder(itemView: FlowerPhotoItemBinding): RecyclerView.ViewHolder(itemView.root){
         val binding = itemView
@@ -49,6 +61,22 @@ class FlowerListRecyclerAdapter: RecyclerView.Adapter<FlowerListRecyclerAdapter.
                 else -> flower = YellowFog()
             }
             flowerImage.setImageResource(flower.flowerImage)
+        }
+        fun checkFlowerList(){
+
+        }
+
+        fun checkClicked(): Boolean{
+
+            return true
+        }
+
+        fun addFlower(){
+
+        }
+
+        fun deleteFlower(){
+
         }
     }
 }

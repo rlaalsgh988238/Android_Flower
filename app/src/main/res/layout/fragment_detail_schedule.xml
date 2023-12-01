@@ -8,16 +8,24 @@
     tools:context=".fragment.DetailScheduleFragment">
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="0dp">
+        <Button
+            android:text="뒤로가기"
+            android:id="@+id/backPress"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
         <TextView
+            android:layout_weight="3"
             android:id="@+id/scheduleName"
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="35dp"
             android:text = "D-00 행사이름"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"/>
     </LinearLayout>
     <LinearLayout

@@ -22,6 +22,7 @@ class DetailScheduleFragment : Fragment() {
     lateinit var binding: FragmentDetailScheduleBinding
     lateinit var meaning: String
     lateinit var title: String
+    var schedulePosition = 0
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +32,11 @@ class DetailScheduleFragment : Fragment() {
 
         binding.flowerImage.setOnClickListener {
             val intent = Intent(UtilObject.currentActivity, EditFlowerActivity::class.java)
+            intent.putExtra("schedulePosition",schedulePosition)
             startActivity(intent)
+        }
+        binding.backPress.setOnClickListener {
+            UtilObject.listeningActivity.backButtonClicked()
         }
     }
 
@@ -44,6 +49,7 @@ class DetailScheduleFragment : Fragment() {
     }
 
     fun setUi(position: Int){
+        schedulePosition = position
         meaning = ScheduleModel.schedule[position].flower[0].flowerMeaning
         var scheduleName = ScheduleModel.schedule[position].scheduleName
         var D_day = ScheduleModel.schedule[position].D_day
