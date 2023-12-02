@@ -10,106 +10,191 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
-            android:layout_marginLeft="20dp"
-            android:orientation="horizontal"
-            android:layout_width="80dp"
-            android:layout_height="40dp">
-            <ImageView
-                android:scaleType="fitEnd"
-                android:layout_weight="3"
-                android:layout_width="0dp"
-                android:src="@drawable/tuesday_image"
-                android:layout_height="wrap_content"/>
-            <ImageView
-                android:scaleType="fitEnd"
-                android:layout_weight="5"
-                android:src="@drawable/tuesday_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/logo_letter"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <TextView
-                android:gravity="left|center"
-                android:textSize="25dp"
-                android:text="userName 님, \n특별한 화요일 되세요"
-                android:layout_weight="3"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text="거의 다 왔어요"
+                    android:fontFamily="@font/pretendard_semibold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text="특별한 화요일을 만들어보세요"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
             <ImageView
                 android:layout_marginHorizontal="80dp"
                 android:src="@drawable/flower_combined"
                 android:adjustViewBounds="true"
                 android:layout_weight="4"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textSize="20dp"
-                android:gravity="center"
-                android:text="꽃다발과 보낼 문구 입력"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <EditText
-                android:layout_marginHorizontal="40dp"
-                android:gravity="center"
-                android:hint="작은 카드로 만들어 보내드려요"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textSize="20dp"
-                android:gravity="center"
-                android:text="배송지 입력"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <EditText
-                android:layout_marginHorizontal="40dp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textSize="20dp"
-                android:gravity="center"
-                android:text="300 won 간편결제하기"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp"
+                android:padding="20dp"/>
             <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="40dp"
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
-                <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="네이버"/>
-                <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="네이버"/>
-                <Button
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="네이버"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:text="함께 보낼 문구 입력"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="작은 카드로 만들어 보내드려요"
+                    android:minHeight="48dp" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:text="배송지 입력"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="작은 카드로 만들어 보내드려요"
+                    android:minHeight="48dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:text="결제 방식 선택"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/layout_radius_30"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+                    <LinearLayout
+                        android:id="@+id/btn_naverpay"
+                        android:clickable="true"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@drawable/layout_radius_5"
+                        android:backgroundTint="#03c75a">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:src="@drawable/icon_naver"/>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="네이버페이"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/btn_kakao"
+                        android:clickable="true"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@drawable/layout_radius_5"
+                        android:backgroundTint="#FEE500">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:padding="5dp"
+                            android:src="@drawable/icon_kakao"/>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="카카오페이"
+                            android:textColor="@color/black_olive"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/btn_samsung"
+                        android:clickable="true"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="50dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="5dp"
+                        android:background="@drawable/layout_radius_5"
+                        android:backgroundTint="#1e4bc6">
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:src="@drawable/icon_samsung_pay"/>
+                        <TextView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="삼성페이"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

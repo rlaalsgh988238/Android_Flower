@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         val bottomNavigation = binding.bottomNavigation
+
+        //bottom nav 기본 select를 home으로
+        bottomNavigation.setSelectedItemId(R.id.menu_home)
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home ->  binding.viewPager.currentItem = 0
@@ -34,13 +37,5 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-//        binding.mainFragment.setOnClickListener {
-//            binding.viewPager.currentItem = 0
-//        }
-//
-//        binding.calendarFragment.setOnClickListener {
-//            binding.viewPager.currentItem = 1
-//        }
     }
 }
