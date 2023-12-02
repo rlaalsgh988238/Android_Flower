@@ -30,7 +30,7 @@ class DetailScheduleFragment : Fragment() {
         binding.mean.text = meaning
         binding.scheduleName.text = title
 
-        binding.flowerImage.setOnClickListener {
+        binding.btnEditFlower.setOnClickListener {
             val intent = Intent(UtilObject.currentActivity, EditFlowerActivity::class.java)
             intent.putExtra("schedulePosition",schedulePosition)
             startActivity(intent)

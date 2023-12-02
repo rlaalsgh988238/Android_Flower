@@ -25,11 +25,11 @@ class EditFlowerActivity : AppCompatActivity() {
         flowerListAdapter
         binding.recyclerView.adapter = flowerListAdapter
 
-        binding.store.setOnClickListener {
+        binding.btnStore.setOnClickListener {
             onBackPressed()
         }
 
-        binding.buy.setOnClickListener {
+        binding.btnBuy.setOnClickListener {
             val intent = Intent(this, BuyActivity::class.java)
             startActivity(intent)
         }
