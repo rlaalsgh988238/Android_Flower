@@ -1,5 +1,6 @@
 package com.example.tuesday.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,15 @@ class EditFlowerActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this).also { it.orientation = LinearLayoutManager.HORIZONTAL }
         flowerListAdapter
         binding.recyclerView.adapter = flowerListAdapter
+
+        binding.store.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.buy.setOnClickListener {
+            val intent = Intent(this, BuyActivity::class.java)
+            startActivity(intent)
+        }
 
         setContentView(binding.root)
     }

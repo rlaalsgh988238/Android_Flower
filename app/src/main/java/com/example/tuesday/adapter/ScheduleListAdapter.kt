@@ -28,6 +28,7 @@ class ScheduleListAdapter(val context: Context): RecyclerView.Adapter<ScheduleLi
             UtilObject.listeningActivity.scheduleClicked(position)
             UtilObject.detailScheduleFragment.setUi(position)
         }
+
     }
     override fun getItemCount(): Int = ScheduleModel.schedule.size
 
