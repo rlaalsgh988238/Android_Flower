@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.R
+import com.example.tuesday.activity.FlowerSelectListener
 import com.example.tuesday.calendar.BlueTulip
 import com.example.tuesday.calendar.FlowerInterface
 import com.example.tuesday.calendar.RedRose
@@ -15,6 +16,7 @@ import com.example.tuesday.databinding.ScheduleItemBinding
 
 class FlowerListRecyclerAdapter: RecyclerView.Adapter<FlowerListRecyclerAdapter.ViewHolder>() {
     var scheduleNum = 0
+    lateinit var listeningActivity: FlowerSelectListener
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -30,13 +32,13 @@ class FlowerListRecyclerAdapter: RecyclerView.Adapter<FlowerListRecyclerAdapter.
         holder.binding.layout.setOnClickListener {
             when(position){
                 redRoseNum -> {
-
+                    listeningActivity.flowerSelected()
                 }
                 blueTulipNum ->{
-
+                    listeningActivity.flowerSelected()
                 }
                 yellowFogNum -> {
-
+                    listeningActivity.flowerSelected()
                 }
             }
         }
@@ -61,22 +63,6 @@ class FlowerListRecyclerAdapter: RecyclerView.Adapter<FlowerListRecyclerAdapter.
                 else -> flower = YellowFog()
             }
             flowerImage.setImageResource(flower.flowerImage)
-        }
-        fun checkFlowerList(){
-
-        }
-
-        fun checkClicked(): Boolean{
-
-            return true
-        }
-
-        fun addFlower(){
-
-        }
-
-        fun deleteFlower(){
-
         }
     }
 }

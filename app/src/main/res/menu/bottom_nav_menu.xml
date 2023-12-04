@@ -9,7 +9,6 @@
         android:id="@+id/menu_calendar"
         android:title="calendar"
         android:icon="@drawable/icon_calendar" />
-
     <item
         android:id="@+id/menu_bouquet"
         android:title="bouquet"

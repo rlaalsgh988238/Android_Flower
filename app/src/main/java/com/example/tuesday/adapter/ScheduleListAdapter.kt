@@ -36,10 +36,12 @@ class ScheduleListAdapter(val context: Context): RecyclerView.Adapter<ScheduleLi
         val binding = itemView
         val schedule = binding.schedule
 
-
         @SuppressLint("ResourceAsColor", "SetTextI18n")
         fun setUi(){
-            schedule.text = "D-${ScheduleModel.schedule[adapterPosition].D_day} ${ScheduleModel.schedule[adapterPosition].scheduleName}"
+            schedule.text = "${ScheduleModel.schedule[adapterPosition].scheduleName}"
+            binding.textDday.text = "D-${ScheduleModel.schedule[adapterPosition].D_day}"
+            binding.textDate.text = "2023.12.03"
+
             if (adapterPosition != 0){
                 schedule.setTextColor(ContextCompat.getColor(context, R.color.light_gray))
             }

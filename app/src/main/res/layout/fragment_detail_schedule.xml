@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragment.DetailScheduleFragment">
 
@@ -12,19 +12,22 @@
         android:layout_weight="4"
         android:layout_width="match_parent"
         android:layout_height="0dp">
-        <Button
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.TextButton.Icon"
             android:text="뒤로가기"
             android:id="@+id/backPress"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            app:icon="@drawable/icon_back"/>
         <TextView
             android:layout_weight="3"
             android:id="@+id/scheduleName"
             android:gravity="center"
             android:textAlignment="center"
-            android:textSize="35dp"
-            android:text = "D-00 행사이름"
+            android:textSize="25sp"
+            android:text = "행사이름"
+            android:fontFamily="@font/pretendard_semibold"
             android:layout_width="0dp"
             android:layout_height="match_parent"/>
     </LinearLayout>
@@ -38,71 +41,112 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/flowerImage"
-                android:layout_gravity="center"
-                android:scaleType="fitCenter"
-                android:src="@drawable/flower_combine1"
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/transparent"
+                app:cardCornerRadius="10dp">
+                <ImageView
+                    android:id="@+id/flowerImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/border_line"
+                    android:clipToOutline="true"
+                    android:src="@drawable/flower_combine1" />
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
         <LinearLayout
             android:layout_marginHorizontal="10dp"
+            android:layout_marginStart="20dp"
             android:orientation="vertical"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <LinearLayout
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
+                <TextView
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="포장지 색상 "
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="@color/ultra_violet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
                 <ImageView
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/purple_paint"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"/>
-                <ImageView
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitXY"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/yellow_paint"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"/>
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
             </LinearLayout>
-            <TextView
-                android:textSize="20dp"
-                android:gravity="center"
-                android:id="@+id/mean"
-                android:text="꽃말"
+            <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textSize="20dp"
-                android:gravity="center"
-                android:id="@+id/price"
-                android:text="1.5~2.0 won"
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="꽃말"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="@color/ultra_violet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/mean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginStart="20dp"
+                    android:text="사랑의 맹세"/>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
-
-
+                android:layout_height="0dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="가격"
+                    android:fontFamily="@font/pretendard_regular"
+                    android:textColor="@color/ultra_violet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginStart="20dp"
+                    android:text="1.5~2.0 ₩" />
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:layout_weight="4"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
-        <ImageButton
-            android:id="@+id/buy"
-            android:background="@color/transparent"
-            android:layout_marginVertical="5dp"
-            android:layout_marginHorizontal="150dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/buy_button"
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.Icon"
+            android:id="@+id/btn_editFlower"
+            android:text="꽃다발 조합하기"
+            app:icon="@drawable/icon_bouqet"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="300dp"
             android:layout_height="match_parent"/>
     </LinearLayout>
 </LinearLayout>

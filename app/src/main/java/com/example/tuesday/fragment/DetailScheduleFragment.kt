@@ -31,7 +31,7 @@ class DetailScheduleFragment : Fragment() {
         binding.mean.text = meaning
         binding.scheduleName.text = title
 
-        binding.flowerImage.setOnClickListener {
+        binding.btnEditFlower.setOnClickListener {
             val intent = Intent(UtilObject.currentActivity, EditFlowerActivity::class.java)
             intent.putExtra("schedulePosition",schedulePosition)
             startActivity(intent)
@@ -39,7 +39,7 @@ class DetailScheduleFragment : Fragment() {
         binding.backPress.setOnClickListener {
             UtilObject.listeningActivity.backButtonClicked()
         }
-        binding.buy.setOnClickListener {
+        binding.btnEditFlower.setOnClickListener {
             val intent = Intent(UtilObject.currentActivity, BuyActivity::class.java)
             startActivity(intent)
         }
