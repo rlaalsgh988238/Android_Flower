@@ -14,7 +14,6 @@ class BuyActivity : AppCompatActivity() {
         binding = ActivityBuyBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initLayout()
-
     }
 
     private fun initLayout() {

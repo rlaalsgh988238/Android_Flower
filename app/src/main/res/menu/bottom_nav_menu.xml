@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menu_calendar"
-        android:title="calendar"
-        android:icon="@drawable/icon_calendar" />
-    <item
         android:id="@+id/menu_home"
         android:title="home"
         android:icon="@drawable/icon_home" />
+    <item
+        android:id="@+id/menu_calendar"
+        android:title="calendar"
+        android:icon="@drawable/icon_calendar" />
     <item
         android:id="@+id/menu_bouquet"
         android:title="bouquet"

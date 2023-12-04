@@ -264,6 +264,7 @@
                                 app:cardCornerRadius="30dp">
 
                                 <ImageView
+                                    android:id="@+id/flower"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
                                     android:layout_gravity="center"
@@ -275,6 +276,7 @@
                             </androidx.cardview.widget.CardView>
 
                             <TextView
+                                android:id="@+id/flowerName"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
