@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.tuesday.MainActivity
 import com.example.tuesday.R
+import com.example.tuesday.activity.BuyActivity
 import com.example.tuesday.activity.EditFlowerActivity
 import com.example.tuesday.calendar.Schedule
 import com.example.tuesday.calendar.ScheduleModel
@@ -37,6 +38,10 @@ class DetailScheduleFragment : Fragment() {
         }
         binding.backPress.setOnClickListener {
             UtilObject.listeningActivity.backButtonClicked()
+        }
+        binding.buy.setOnClickListener {
+            val intent = Intent(UtilObject.currentActivity, BuyActivity::class.java)
+            startActivity(intent)
         }
     }
 

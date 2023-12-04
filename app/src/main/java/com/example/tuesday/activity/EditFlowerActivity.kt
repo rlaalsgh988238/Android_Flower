@@ -22,7 +22,7 @@ class EditFlowerActivity : AppCompatActivity() {
         flowerListAdapter.setSchedulePosition(schedulePosition)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this).also { it.orientation = LinearLayoutManager.HORIZONTAL }
-        flowerListAdapter
+
         binding.recyclerView.adapter = flowerListAdapter
 
         binding.store.setOnClickListener {
