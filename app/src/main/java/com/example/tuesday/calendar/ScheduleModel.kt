@@ -31,8 +31,8 @@ interface Schedule{
 }
 
 data class FirstSchedule(
-    override var D_day: Int = 5,
-    override var scheduleName: String = "유빈이 생일",
+    override var D_day: Int = 3,
+    override var scheduleName: String = "결혼 기념일",
     override var flower:ArrayList<FlowerInterface> = ArrayList<FlowerInterface>()
 ): Schedule{
     init {

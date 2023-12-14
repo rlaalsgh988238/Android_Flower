@@ -50,7 +50,7 @@ class PushActivity : AppCompatActivity() {
         val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.tuesday_image)
             .setContentTitle("화요일")
-            .setContentText("유빈님 생일이 5일 남았어요! 어울리는 꽃을 준비해 보아요")
+            .setContentText("결혼기념일이 얼마 안남았어요! 어울리는 꽃을 준비해 보아요")
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)

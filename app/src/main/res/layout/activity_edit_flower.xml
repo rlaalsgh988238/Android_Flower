@@ -47,6 +47,7 @@
                 android:textColor="@color/ultra_violet"
                 android:textSize="18sp" />
             <LinearLayout
+                android:weightSum="4"
                 android:orientation="horizontal"
                 android:layout_weight="3"
                 android:layout_width="0dp"
@@ -60,22 +61,11 @@
                     android:layout_height="match_parent"/>
                 <ImageView
                     android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/purple_paint"
+                    android:src="@drawable/yellow_paint"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"/>
-                <ImageView
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/purple_paint"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"/>
-                <ImageView
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/purple_paint"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"/>
+
 
 
             </LinearLayout>

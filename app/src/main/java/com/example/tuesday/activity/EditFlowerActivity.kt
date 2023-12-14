@@ -3,6 +3,7 @@ package com.example.tuesday.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tuesday.R
 import com.example.tuesday.adapter.FlowerListRecyclerAdapter
@@ -20,11 +21,11 @@ class EditFlowerActivity : AppCompatActivity(), FlowerSelectListener {
         schedulePosition = intent.getIntExtra("schedulePosition", 0)
         ScheduleModel.schedule[schedulePosition]
         flowerListAdapter.setSchedulePosition(schedulePosition)
-        flowerListAdapter.listeningActivity = this
-
+        flowerListAdapter.setInfo(binding, this)
         binding.recyclerView.layoutManager = LinearLayoutManager(this).also { it.orientation = LinearLayoutManager.HORIZONTAL }
-
         binding.recyclerView.adapter = flowerListAdapter
+
+
 
         binding.btnStore.setOnClickListener {
             onBackPressed()
@@ -40,7 +41,26 @@ class EditFlowerActivity : AppCompatActivity(), FlowerSelectListener {
 
     var num = 0
     override fun flowerSelected() {
-        binding.combined.setImageResource(R.drawable.flower_combine1)
+        Log.d("change","change")
+        when(num){
+            0 -> {
+                binding.combined.setImageResource(R.drawable.flower_combine1)
+                num++
+            }
+            1 -> {
+                binding.combined.setImageResource(R.drawable.sdfsdf)
+                num++
+            }
+            2 -> {
+                binding.combined.setImageResource(R.drawable.flower_combined)
+                num++
+            }
+            else -> {
+                binding.combined.setImageResource(R.drawable.fdsfd)
+                num = 0
+            }
+        }
+
     }
 }
 

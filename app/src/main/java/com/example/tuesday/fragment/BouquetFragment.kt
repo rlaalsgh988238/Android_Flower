@@ -2,6 +2,7 @@ package com.example.tuesday.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,27 @@ class BouquetFragment : Fragment(), FlowerSelectListener {
         return binding.root
     }
 
+    var num = 0
     override fun flowerSelected() {
+        Log.d("change","change")
+        when(num){
+            0 -> {
+                binding.combined.setImageResource(R.drawable.flower_combine1)
+                num++
+            }
+            1 -> {
+                binding.combined.setImageResource(R.drawable.sdfsdf)
+                num++
+            }
+            2 -> {
+                binding.combined.setImageResource(R.drawable.flower_combined)
+                num++
+            }
+            else -> {
+                binding.combined.setImageResource(R.drawable.fdsfd)
+                num = 0
+            }
+        }
 
     }
 

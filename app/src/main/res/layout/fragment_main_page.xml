@@ -91,7 +91,7 @@
                             android:fontFamily="@font/pretendard_semibold"
                             android:paddingStart="10dp"
                             android:paddingTop="15dp"
-                            android:text="안녕하세요 최유빈 님!"
+                            android:text="안녕하세요 김민호 님!"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
 
@@ -189,7 +189,7 @@
                                 android:id="@+id/iconinside"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/icon_sun"
+                                android:src="@drawable/mdi_won"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderlocation"
                                 app:layout_constraintEnd_toStartOf="@id/sliderlocation"
                                 app:layout_constraintTop_toTopOf="@id/sliderlocation"
@@ -211,21 +211,14 @@
                                 android:id="@+id/icon_outside"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
-                                android:src="@drawable/icon_rain"
+                                android:src="@drawable/mdi_won"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderlocation"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/sliderlocation"
                                 app:tint="@color/white" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <Button
-                            style="@style/Widget.Material3.Button.TonalButton"
-                            android:layout_width="100dp"
-                            android:layout_height="48dp"
-                            android:layout_gravity="center"
-                            android:alpha="0.7"
-                            android:backgroundTint="@color/white"
-                            android:text="추천받기" />
+
 
                     </LinearLayout>
 
@@ -308,7 +301,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/pretendard_semibold"
-                    android:text="최유빈 님을 위한 컨텐츠"
+                    android:text="김민호 님을 위한 컨텐츠"
                     android:textSize="18sp" />
 
                 <LinearLayout
@@ -346,7 +339,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
-                                    android:text="어쩌고 저쩌고 신기방기 ~"
+                                    android:text="손이 꽁꽁꽁 발이 꽁꽁꽁"
                                     android:textAppearance="?attr/textAppearanceBodyMedium" />
 
                             </LinearLayout>
@@ -399,7 +392,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
-                                    android:text="어쩌고 저쩌고 신기방기 ~"
+                                    android:text="너 T야?"
                                     android:textAppearance="?attr/textAppearanceBodyMedium" />
                             </LinearLayout>
                         </LinearLayout>
@@ -436,7 +429,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8dp"
-                                    android:text="어쩌고 저쩌고 신기방기 ~"
+                                    android:text="당신은 나의 동반자~"
                                     android:textAppearance="?attr/textAppearanceBodyMedium" />
 
                             </LinearLayout>
@@ -449,6 +442,52 @@
                                 android:src="@drawable/pic_special" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_marginTop="10dp"
+                        android:clickable="true"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:alpha="0.7"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/flower_combined" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="0.7"
+                                android:orientation="vertical"
+                                android:padding="16dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/pretendard_semibold"
+                                    android:text="건국 꽃집\n예쁜 꽃들이 많아요~"
+
+                                    android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:text="서울 특별시 광진구 군자로 31"
+                                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
                 <TextView
@@ -458,7 +497,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/pretendard_semibold"
-                    android:text="최유빈 님\n어떤 꽃을 구경하고 싶으세요?"
+                    android:text="김민호 님\n어떤 꽃을 구경하고 싶으세요?"
                     android:textSize="18sp" />
 
                 <LinearLayout
@@ -538,15 +577,28 @@
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@color/white"
                                 app:cardCornerRadius="10dp">
-
-                                <ImageView
+                                <FrameLayout
+                                    android:id="@+id/flower1"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/flower_combine1" />
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/flower_combine1" />
+                                    <ImageView
+                                        android:id="@+id/bookmark1"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
+
+
                             </com.google.android.material.card.MaterialCardView>
 
                             <com.google.android.material.card.MaterialCardView
@@ -556,14 +608,26 @@
                                 android:backgroundTint="@color/white"
                                 app:cardCornerRadius="10dp">
 
-                                <ImageView
+                                <FrameLayout
+                                    android:id="@+id/flower2"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/blue_tulip" />
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/blue_tulip" />
+                                    <ImageView
+                                        android:id="@+id/bookmark2"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
                             </com.google.android.material.card.MaterialCardView>
 
                             <com.google.android.material.card.MaterialCardView
@@ -573,72 +637,26 @@
                                 android:backgroundTint="@color/white"
                                 app:cardCornerRadius="10dp">
 
-                                <ImageView
+                                <FrameLayout
+                                    android:id="@+id/flower3"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/red_rose" />
-                            </com.google.android.material.card.MaterialCardView>
-                        </LinearLayout>
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/red_rose" />
+                                    <ImageView
+                                        android:id="@+id/bookmark3"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <com.google.android.material.card.MaterialCardView
-                                style="?attr/materialCardViewFilledStyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/white"
-                                app:cardCornerRadius="10dp">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/blue_tulip" />
-                            </com.google.android.material.card.MaterialCardView>
-
-                            <com.google.android.material.card.MaterialCardView
-                                style="?attr/materialCardViewFilledStyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/white"
-                                app:cardCornerRadius="10dp">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/flower_combine1" />
-                            </com.google.android.material.card.MaterialCardView>
-
-                            <com.google.android.material.card.MaterialCardView
-                                style="?attr/materialCardViewFilledStyle"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:backgroundTint="@color/white"
-                                app:cardCornerRadius="10dp">
-
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/blue_tulip" />
+                                </FrameLayout>
                             </com.google.android.material.card.MaterialCardView>
                         </LinearLayout>
 
@@ -655,14 +673,26 @@
                                 android:backgroundTint="@color/white"
                                 app:cardCornerRadius="10dp">
 
-                                <ImageView
+                                <FrameLayout
+                                    android:id="@+id/flower4"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/red_rose" />
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/red_rose" />
+                                    <ImageView
+                                        android:id="@+id/bookmark4"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
                             </com.google.android.material.card.MaterialCardView>
 
                             <com.google.android.material.card.MaterialCardView
@@ -672,14 +702,26 @@
                                 android:backgroundTint="@color/white"
                                 app:cardCornerRadius="10dp">
 
-                                <ImageView
+                                <FrameLayout
+                                    android:id="@+id/flower5"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/flower_combined" />
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/flower_combined" />
+                                    <ImageView
+                                        android:id="@+id/bookmark5"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
                             </com.google.android.material.card.MaterialCardView>
 
                             <com.google.android.material.card.MaterialCardView
@@ -689,14 +731,120 @@
                                 android:backgroundTint="@color/white"
                                 app:cardCornerRadius="10dp">
 
-                                <ImageView
+                                <FrameLayout
+                                    android:id="@+id/flower6"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    android:adjustViewBounds="true"
-                                    android:background="@drawable/border_line"
-                                    android:clipToOutline="true"
-                                    android:src="@drawable/yellow_fog" />
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/yellow_fog" />
+                                    <ImageView
+                                        android:id="@+id/bookmark6"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
+                            </com.google.android.material.card.MaterialCardView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.card.MaterialCardView
+                                style="?attr/materialCardViewFilledStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                app:cardCornerRadius="10dp">
+
+                                <FrameLayout
+                                    android:id="@+id/flower7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/blue_tulip" />
+                                    <ImageView
+                                        android:id="@+id/bookmark7"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                style="?attr/materialCardViewFilledStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                app:cardCornerRadius="10dp">
+
+                                <FrameLayout
+                                    android:id="@+id/flower8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/yellow_fog" />
+                                    <ImageView
+                                        android:id="@+id/bookmark8"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                style="?attr/materialCardViewFilledStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                app:cardCornerRadius="10dp">
+
+                                <FrameLayout
+                                    android:id="@+id/flower9"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:adjustViewBounds="true"
+                                        android:background="@drawable/border_line"
+                                        android:clipToOutline="true"
+                                        android:src="@drawable/flower_combine1" />
+                                    <ImageView
+                                        android:id="@+id/bookmark9"
+                                        android:layout_gravity="right|top"
+                                        android:src="@drawable/symbols_bookmark"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+                                </FrameLayout>
                             </com.google.android.material.card.MaterialCardView>
                         </LinearLayout>
                     </LinearLayout>

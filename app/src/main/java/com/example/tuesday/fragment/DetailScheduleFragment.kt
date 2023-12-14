@@ -39,10 +39,10 @@ class DetailScheduleFragment : Fragment() {
         binding.backPress.setOnClickListener {
             UtilObject.listeningActivity.backButtonClicked()
         }
-        binding.btnEditFlower.setOnClickListener {
-            val intent = Intent(UtilObject.currentActivity, BuyActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.btnEditFlower.setOnClickListener {
+//            val intent = Intent(UtilObject.currentActivity, BuyActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 
     override fun onCreateView(
