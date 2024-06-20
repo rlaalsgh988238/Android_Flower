@@ -47,7 +47,7 @@
                 <TextView
                     android:gravity="center_vertical"
                     android:textSize="20sp"
-                    android:text="특별한 화요일을 만들어보세요"
+                    android:text="특별한 기념일을 만들어보세요"
                     android:fontFamily="@font/pretendard_regular"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

@@ -49,7 +49,7 @@ class PushActivity : AppCompatActivity() {
 
         val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.tuesday_image)
-            .setContentTitle("화요일")
+            .setContentTitle("FelizCalendar")
             .setContentText("결혼기념일이 얼마 안남았어요! 어울리는 꽃을 준비해 보아요")
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -61,7 +61,7 @@ class PushActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "화요일",
+                "FelizCalendar",
                 NotificationManager.IMPORTANCE_HIGH
             )
             channel.description = "알림"

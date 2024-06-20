@@ -66,6 +66,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:layout_marginHorizontal="10dp"
                 android:id="@+id/layout_recommend"
                 android:layout_width="match_parent"
                 android:layout_height="280dp"
@@ -111,9 +112,10 @@
 
                             <ImageView
                                 android:id="@+id/iconSun"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="@drawable/icon_sun"
+                                app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderWeather"
                                 app:layout_constraintEnd_toStartOf="@id/sliderWeather"
                                 app:layout_constraintTop_toTopOf="@id/sliderWeather"
@@ -121,11 +123,12 @@
 
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/sliderWeather"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:stepSize="1.0"
                                 android:valueFrom="0.0"
                                 android:valueTo="5.0"
+                                app:layout_constraintStart_toEndOf="@id/iconSun"
                                 app:layout_constraintEnd_toStartOf="@id/iconRain"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:thumbColor="@color/white"
@@ -133,9 +136,10 @@
 
                             <ImageView
                                 android:id="@+id/iconRain"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="@drawable/icon_rain"
+                                app:layout_constraintStart_toEndOf="@id/sliderWeather"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderWeather"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/sliderWeather"
@@ -149,9 +153,10 @@
 
                             <ImageView
                                 android:id="@+id/iconHappy"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="@drawable/icon_happy"
+                                app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderFeeling"
                                 app:layout_constraintEnd_toStartOf="@id/sliderFeeling"
                                 app:layout_constraintTop_toTopOf="@id/sliderFeeling"
@@ -159,11 +164,12 @@
 
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/sliderFeeling"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:stepSize="1.0"
                                 android:valueFrom="0.0"
                                 android:valueTo="5.0"
+                                app:layout_constraintStart_toEndOf="@id/iconHappy"
                                 app:layout_constraintEnd_toStartOf="@id/iconSad"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:thumbColor="@color/white"
@@ -171,9 +177,10 @@
 
                             <ImageView
                                 android:id="@+id/iconSad"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="@drawable/icon_sad"
+                                app:layout_constraintStart_toEndOf="@id/sliderFeeling"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderFeeling"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/sliderFeeling"
@@ -187,9 +194,10 @@
 
                             <ImageView
                                 android:id="@+id/iconinside"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="@drawable/mdi_won"
+                                app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderlocation"
                                 app:layout_constraintEnd_toStartOf="@id/sliderlocation"
                                 app:layout_constraintTop_toTopOf="@id/sliderlocation"
@@ -197,11 +205,12 @@
 
                             <com.google.android.material.slider.Slider
                                 android:id="@+id/sliderlocation"
-                                android:layout_width="150dp"
+                                android:layout_width="100dp"
                                 android:layout_height="wrap_content"
                                 android:stepSize="1.0"
                                 android:valueFrom="0.0"
                                 android:valueTo="5.0"
+                                app:layout_constraintStart_toEndOf="@id/iconinside"
                                 app:layout_constraintEnd_toStartOf="@id/icon_outside"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:thumbColor="@color/white"
@@ -209,16 +218,15 @@
 
                             <ImageView
                                 android:id="@+id/icon_outside"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
                                 android:src="@drawable/mdi_won"
+                                app:layout_constraintStart_toEndOf="@id/sliderlocation"
                                 app:layout_constraintBottom_toBottomOf="@id/sliderlocation"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintTop_toTopOf="@id/sliderlocation"
                                 app:tint="@color/white" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
                     </LinearLayout>
 
@@ -280,11 +288,11 @@
                                 android:textSize="18sp" />
                         </LinearLayout>
 
-
                     </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -42,7 +42,7 @@ data class FirstSchedule(
 
 data class SecondSchedule(
     override var D_day: Int = 12,
-    override var scheduleName: String = "세나기 마지막",
+    override var scheduleName: String = "HCI 마지막",
     override var flower:ArrayList<FlowerInterface> = ArrayList<FlowerInterface>()
 ): Schedule{
     init {
