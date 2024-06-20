@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_calendar -> binding.viewPager.currentItem = 1
                 R.id.menu_bouquet -> binding.viewPager.currentItem = 2
             }
+            //화면 움직이는 쪽
             true
         }
     }

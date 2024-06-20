@@ -31,9 +31,9 @@ class PushActivity : AppCompatActivity() {
 
         val intentMain = Intent(this, MainActivity::class.java)
 
-        binding.push.setOnClickListener{
-            showNotification()
-        }
+//        binding.push.setOnClickListener{
+//            showNotification()
+//        }
 
         binding.main.setOnClickListener {
             startActivity(intentMain)
@@ -41,6 +41,30 @@ class PushActivity : AppCompatActivity() {
 
         setContentView(binding.root)
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     fun showNotification() {
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("push",true)
