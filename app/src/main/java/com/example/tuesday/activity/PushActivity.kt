@@ -29,11 +29,8 @@ class PushActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPushBinding.inflate(layoutInflater)
 
-        val intentMain = Intent(this, MainActivity::class.java)
+        val intentMain = Intent(this, login_page::class.java)
 
-//        binding.push.setOnClickListener{
-//            showNotification()
-//        }
 
         binding.main.setOnClickListener {
             startActivity(intentMain)

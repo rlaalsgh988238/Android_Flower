@@ -18,6 +18,9 @@
             android:name=".activity.SignInActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.login_page"
+            android:exported="false" />
+        <activity
             android:name=".activity.BuyConfirmedActivity"
             android:exported="false" />
         <activity
