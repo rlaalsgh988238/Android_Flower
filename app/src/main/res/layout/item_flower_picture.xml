@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/flower_frame"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/flower_pic_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flower_1_1"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <ImageView
+        android:id="@+id/like_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/liked_off"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/flower_pic_iv"
+        app:layout_constraintStart_toEndOf="@id/flower_pic_iv"/>
+
+    <TextView
+        android:id="@+id/flower_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jade plant"
+        android:textColor="#101828"
+        android:fontFamily="@font/poppins"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintTop_toBottomOf="@id/flower_pic_iv"
+        app:layout_constraintStart_toStartOf="@id/flower_pic_iv"/>
+
+    <ImageView
+        android:id="@+id/price_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/frame"
+        app:layout_constraintTop_toBottomOf="@id/flower_name_tv"
+        app:layout_constraintStart_toStartOf="@id/flower_name_tv"/>
+
+    <ImageView
+        android:id="@+id/add_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/flower_pic_iv"
+        app:layout_constraintStart_toEndOf="@id/flower_pic_iv"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

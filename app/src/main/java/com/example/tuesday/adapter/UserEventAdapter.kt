@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.databinding.ItemEventBinding
-import com.example.tuesday.fragment.EventData
+import com.example.tuesday.Data.EventData
 
-class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, var btnState:String, var currentMonth:Int,var currentDay:Int) :
+class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, var btnState:String, var currentMonth:Int, var currentDay:Int) :
     RecyclerView.Adapter<UserEventAdapter.ViewHolder>() {
 
     private lateinit var itemClickListener: OnItemClickListener
