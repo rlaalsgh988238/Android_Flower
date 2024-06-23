@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.databinding.ItemCategoryBinding
-import com.example.tuesday.databinding.ItemEventBinding
-import com.example.tuesday.fragment.CategoryData
-import com.example.tuesday.fragment.EventData
+import com.example.tuesday.Data.CategoryData
 
 class CategoryAdapter(val context: Context, val items: ArrayList<CategoryData>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {

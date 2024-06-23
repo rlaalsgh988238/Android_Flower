@@ -1,17 +1,15 @@
 package com.example.tuesday.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tuesday.Data.CategoryData
 import com.example.tuesday.R
 import com.example.tuesday.adapter.CategoryAdapter
-import com.example.tuesday.adapter.UserEventAdapter
 import com.example.tuesday.databinding.FragmentGiftBinding
-import com.example.tuesday.databinding.FragmentUserEventBinding
 
 
 class GiftFragment : Fragment() {

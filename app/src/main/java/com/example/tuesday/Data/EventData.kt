@@ -1,4 +1,4 @@
-package com.example.tuesday.fragment
+package com.example.tuesday.Data
 
  data class EventData (
     val eventName:String,
