@@ -3,15 +3,14 @@
 
     <item
         android:id="@+id/menu_home"
-        android:title="home"
-        android:icon="@drawable/icon_home" />
+        android:title="Gift"
+        android:icon="@drawable/bottom_gift" />
     <item
         android:id="@+id/menu_calendar"
-        android:title="calendar"
-        android:icon="@drawable/icon_calendar" />
+        android:title="Calendar"
+        android:icon="@drawable/calendar" />
     <item
         android:id="@+id/menu_bouquet"
-        android:title="bouquet"
-        android:icon="@drawable/icon_bouqet" />
-
+        android:title="My Page"
+        android:icon="@drawable/mypage" />
 </menu>

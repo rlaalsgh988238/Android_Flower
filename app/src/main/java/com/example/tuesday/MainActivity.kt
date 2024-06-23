@@ -1,13 +1,13 @@
 package com.example.tuesday
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.tuesday.adapter.MainViewPagerAdapter
-import com.example.tuesday.calendar.ScheduleModel
-import com.example.tuesday.calendar.UtilListener
 import com.example.tuesday.calendar.UtilObject
 import com.example.tuesday.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.tuesday.fragment.my_page
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -17,8 +17,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.viewPager.adapter = MainViewPagerAdapter(this)
+        val intent = intent //전달할 데이터를 받을 Intent
+        val email = intent.getStringExtra("email")
+        val name = intent.getStringExtra("name")
+        binding.viewPager.adapter = MainViewPagerAdapter(this, email, name)
         binding.viewPager.isUserInputEnabled = false
+
+
+
 
         var intentStatus = intent.getBooleanExtra("push",false)
         if (intentStatus){
@@ -35,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_calendar -> binding.viewPager.currentItem = 1
                 R.id.menu_bouquet -> binding.viewPager.currentItem = 2
             }
+            //화면 움직이는 쪽
             true
         }
     }

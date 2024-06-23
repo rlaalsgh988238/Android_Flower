@@ -18,6 +18,7 @@ class CalendarFragment : Fragment(), UtilListener {
         super.onViewCreated(view, savedInstanceState)
         setUI()
 
+
     }
 
     override fun onCreateView(
@@ -34,6 +35,7 @@ class CalendarFragment : Fragment(), UtilListener {
         binding.viewPager.currentItem = 1
         setUI()
     }
+
 
     override fun backButtonClicked() {
         binding.viewPager.currentItem = 0

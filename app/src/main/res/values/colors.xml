@@ -12,4 +12,8 @@
     <color name="tea_rose">#ecc9cd</color>
     <color name="cafe_noir">#4d2f05</color>
     <color name="black_olive">#2c2d27</color>
+    <color name="primary">#475E3E</color>
+
+
+    <color name="line_stroke">#DADCE0</color>
 </resources>
