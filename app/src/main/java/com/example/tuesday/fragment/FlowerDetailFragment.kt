@@ -6,24 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.tuesday.R
-import com.example.tuesday.databinding.FragmentUserCalendarBinding
-import com.example.tuesday.databinding.FragmentUserEventBinding
 
-class UserCalendarFragment : Fragment() {
-    private lateinit var binding: FragmentUserCalendarBinding
+class FlowerDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding=FragmentUserCalendarBinding.inflate(layoutInflater)
-
-
-        return binding.root
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_flower_detail, container, false)
     }
 
 }
