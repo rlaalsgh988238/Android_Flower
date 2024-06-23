@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+
     namespace = "com.example.tuesday"
     compileSdk = 34
 
@@ -41,6 +42,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packaging {
+        resources {
+            excludes += "META-INF/DEPENDENCIES"
+        }
+    }
+
 }
 
 dependencies {
@@ -72,4 +79,19 @@ dependencies {
     implementation("com.google.firebase:firebase-core:21.1.1")
     implementation("com.google.firebase:firebase-auth:23.0.0")
 
+
+    // Google Calendar API and dependencies
+    implementation("com.google.android.gms:play-services-auth:20.5.0")
+    implementation("com.google.apis:google-api-services-calendar:v3-rev411-1.25.0")
+    implementation("com.google.api-client:google-api-client-android:1.31.5")
+    implementation("com.google.http-client:google-http-client-gson:1.34.0")
+    implementation("com.google.oauth-client:google-oauth-client-jetty:1.31.5")
+
+    implementation("androidx.credentials:credentials:1.3.0-alpha01")
+
+
+    //SlidingUppannel
+
 }
+
+

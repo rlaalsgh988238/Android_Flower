@@ -6,13 +6,16 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.tuesday.fragment.BouquetFragment
 import com.example.tuesday.fragment.CalendarFragment
+import com.example.tuesday.fragment.GiftFragment
 import com.example.tuesday.fragment.MainPageFragment
+import com.example.tuesday.fragment.UserCalendarFragment
+import com.example.tuesday.fragment.UserEventFragment
 import com.example.tuesday.fragment.my_page
 
 class MainViewPagerAdapter (fragmentActivity: FragmentActivity, private val email: String?, private val name: String?): FragmentStateAdapter(fragmentActivity){
 
-    private val menuFragmentList = listOf<Fragment>(
-        MainPageFragment(), CalendarFragment(), my_page()
+    private val menuFragmentList = listOf<Fragment>(//지금은 안쓰임
+        MainPageFragment(), UserCalendarFragment(), my_page()
     )
 
     override fun getItemCount(): Int {
@@ -21,9 +24,15 @@ class MainViewPagerAdapter (fragmentActivity: FragmentActivity, private val emai
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> MainPageFragment()
-            1 -> CalendarFragment()
-            2 -> {
+            0 -> GiftFragment()
+            1 -> {
+                val fragment = UserEventFragment()
+                val bundle = Bundle()
+                bundle.putString("email", email)
+                bundle.putString("name", name)
+                fragment.arguments = bundle
+                fragment
+            }2 -> {
                 val fragment = my_page()
                 val bundle = Bundle()
                 bundle.putString("email", email)
