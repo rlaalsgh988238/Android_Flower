@@ -6,10 +6,12 @@ import com.example.tuesday.AI.model.Message
 import com.example.tuesday.AI.model.RequestBody
 import com.example.tuesday.AI.model.ResponseContent
 import com.example.tuesday.AI.retrofit.RetrofitClient
+import com.example.tuesday.R
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Objects
 import java.util.concurrent.CountDownLatch
 
 class ChatGPT {
@@ -28,7 +30,7 @@ class ChatGPT {
                 message
             }
         }
-        val requestBody = RequestBody(model = "gpt-4", messages = messages)
+        val requestBody = RequestBody(model = "gpt-4o", messages = messages)
 
         RetrofitClient.api.createRequest(requestBody).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
@@ -60,6 +62,42 @@ class ChatGPT {
             }
         })
     }
+
+    fun getEventData(calendarEvent: String): FlowerData{
+        val chatGPT = ChatGPT()
+        val latch = CountDownLatch(1)
+        var flowerData: FlowerData? = null
+
+        chatGPT.getFlowerData(calendarEvent) { data ->
+            flowerData = data
+            latch.countDown() // 비동기 작업 완료 신호
+        }
+
+        latch.await() // 비동기 작업이 완료될 때까지 메인 쓰레드 대기
+
+        flowerData?.let {
+            println("Flower Event: ${it.flowerEvent}")
+            println("Event: ${it.event}")
+            println("Flower Name: ${it.flower.name}")
+            println("Flower Symbolism: ${it.flower.symbolism}")
+            println("Flower Description: ${it.flower.description}")
+            println("Message: ${it.message}")
+        } ?: println("Failed to retrieve flower data.")
+        return flowerData!!
+    }
+
+    fun getFlowerImage(flowerData: FlowerData): Int{
+        val flowerName = flowerData.flower.name
+        Log.d("FlowerName: ",flowerName)
+        return when(flowerName){
+            "장미" -> R.drawable.red_rose
+            "카네이션" -> R.drawable.red_carnation
+            "백합" -> R.drawable.white_lily
+            "진달래" -> R.drawable.pink_jindale
+
+            else -> R.drawable.flower_combine1
+        }
+    }
 }
 data class FlowerInfo(
     var name: String,
@@ -75,22 +113,5 @@ data class FlowerData(
 
 fun main() {
     val chatGPT = ChatGPT()
-    val latch = CountDownLatch(1)
-    var flowerData: FlowerData? = null
-
-    chatGPT.getFlowerData("용우 생일") { data ->
-        flowerData = data
-        latch.countDown() // 비동기 작업 완료 신호
-    }
-
-    latch.await() // 비동기 작업이 완료될 때까지 메인 쓰레드 대기
-
-    flowerData?.let {
-        println("Flower Event: ${it.flowerEvent}")
-        println("Event: ${it.event}")
-        println("Flower Name: ${it.flower.name}")
-        println("Flower Symbolism: ${it.flower.symbolism}")
-        println("Flower Description: ${it.flower.description}")
-        println("Message: ${it.message}")
-    } ?: println("Failed to retrieve flower data.")
+    chatGPT.getEventData("종강 술파티")
 }
