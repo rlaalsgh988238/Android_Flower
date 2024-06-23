@@ -14,6 +14,7 @@ import com.example.tuesday.MainActivity
 import com.example.tuesday.R
 import com.example.tuesday.databinding.ActivityLoginPageBinding
 import com.example.tuesday.databinding.ActivitySignInBinding
+import com.example.tuesday.fragment.UserEventFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -89,6 +90,7 @@ class login_page : AppCompatActivity() {
                 //어디로 보낼지 저ㄱ는코드
                 //이메일을 보내고 있는데 사용자 이름 받아서 보내는것도 하자
                 intent.putExtra("email", account.email)
+                intent.putExtra("account",account)
                 intent.putExtra("name", account.displayName) // 사용자 이름 추가
                 Toast.makeText(this, "성공", Toast.LENGTH_SHORT).show()
                 startActivity(intent)

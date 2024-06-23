@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F0F4EF"
+    tools:context=".fragment.UserEventFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:id="@+id/fragment_fl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/event_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="20dp"
+        android:text="Event"
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <CalendarView
+        android:id="@+id/calendar_cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/event_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/today_cl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/calendar_cv"
+        app:layout_constraintStart_toStartOf="parent">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/today_btn"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#475E3E"
+        android:backgroundTint="#475E3E"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/today_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/today_btn"
+        app:layout_constraintBottom_toBottomOf="@id/today_btn"
+        app:layout_constraintStart_toStartOf="@id/today_btn"
+        app:layout_constraintEnd_toEndOf="@id/today_btn"
+        android:text="today"
+        android:textColor="@color/white"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/week_cl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/calendar_cv"
+        app:layout_constraintStart_toEndOf="@id/today_cl">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/week_btn"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#F0F4EF"
+            app:strokeWidth="1dp"
+            app:strokeColor="#475E3E"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/week_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/week_btn"
+            app:layout_constraintBottom_toBottomOf="@id/week_btn"
+            app:layout_constraintStart_toStartOf="@id/week_btn"
+            app:layout_constraintEnd_toEndOf="@id/week_btn"
+            android:text="week"
+            android:textColor="#475E3E"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/month_cl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/calendar_cv"
+        app:layout_constraintStart_toEndOf="@id/week_cl">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/month_btn"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#F0F4EF"
+            app:strokeColor="#475E3E"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/month_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/month_btn"
+            app:layout_constraintBottom_toBottomOf="@id/month_btn"
+            app:layout_constraintStart_toStartOf="@id/month_btn"
+            app:layout_constraintEnd_toEndOf="@id/month_btn"
+            android:text="month"
+            android:textColor="#475E3E"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/event_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/today_cl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_event"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
