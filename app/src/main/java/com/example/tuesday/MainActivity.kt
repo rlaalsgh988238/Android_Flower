@@ -87,7 +87,9 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setSelectedItemId(R.id.menu_home)
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.menu_home -> binding.viewPager.currentItem = 0
+                R.id.menu_home -> {
+                    binding.viewPager.currentItem = 0
+                }
                 R.id.menu_calendar -> binding.viewPager.currentItem = 1
                 R.id.menu_bouquet -> binding.viewPager.currentItem = 2
             }
