@@ -1,5 +1,6 @@
 package com.example.tuesday.fragment
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.Data.EventData
 import com.example.tuesday.Object.EventDataHolder
 import com.example.tuesday.R
+import com.example.tuesday.activity.FlowerDetailActivity
 import com.example.tuesday.adapter.UserEventAdapter
 import com.example.tuesday.databinding.FragmentUserEventBinding
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
@@ -148,13 +150,13 @@ class UserEventFragment : Fragment() {
         Log.d("itemList", EventDataHolder.itemList.toString())
         binding.eventRv.addItemDecoration(SpaceItemDecoration(25))
 
-        userEventAdapter.setOnItemClickListener(object : UserEventAdapter.OnItemClickListener {
-            override fun onItemClick(eventName: String) {
-                Log.d("thisclicked", eventName)
-             //TODO:실행만 넣기
-
-
-
+        userEventAdapter!!.setOnItemClickListener(object :UserEventAdapter.OnItemClickListener{
+            override fun onItemClick(eventName:String) {
+                val intent = Intent(requireContext(), FlowerDetailActivity::class.java).apply {
+                    putExtra("eventName",eventName)
+                }
+                startActivity(intent)
+                Log.d("thisclicked",eventName)
             }
         })
     }

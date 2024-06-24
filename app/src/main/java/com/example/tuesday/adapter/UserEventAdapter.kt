@@ -121,7 +121,6 @@ class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, va
 
                     binding.layoutCl.setOnClickListener{
                         itemClickListener.onItemClick(item.eventName)
-
                     }
 
                 }else{

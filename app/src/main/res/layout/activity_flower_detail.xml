@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F4EF"
+    android:id="@+id/parent_cl"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activity.FlowerDetailActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow_l"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="24dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <ImageView
+                android:id="@+id/like_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/liked_off"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/back_iv"/>
+            <TextView
+                android:id="@+id/event_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_goneMarginStart="5dp"
+                android:text=""
+                android:maxLines="1"
+                android:textSize="20sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                android:layout_marginTop="29dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/back_iv"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"/>
+            <ImageView
+                android:scaleType="centerInside"
+                android:id="@+id/flower_iv"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/gpt_searching_1"
+                app:layout_constraintTop_toBottomOf="@id/event_tv"
+                tools:ignore="MissingConstraints" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/falseCL"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/flower_iv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginHorizontal="24dp"
+                    android:id="@+id/falseTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="장미꽃"
+                    android:breakStrategy="simple"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/trueEventCL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/event_frame"
+                app:layout_constraintTop_toBottomOf="@id/flower_iv"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+                <TextView
+                    android:id="@+id/flower_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추천꽃 선정 중...."
+                    android:textSize="24sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+                <ImageView
+                    android:id="@+id/purchase_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/purchase_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/flower_name_tv"
+                    android:layout_marginEnd="24dp"/>
+                <TextView
+                    android:id="@+id/recommend_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#101828"
+                    android:text="추천 메세지"
+                    app:layout_constraintTop_toBottomOf="@id/flower_name_tv"
+                    app:layout_constraintStart_toStartOf="@id/flower_name_tv"/>
+                <TextView
+                    android:layout_marginHorizontal="24dp"
+                    android:breakStrategy="simple"
+                    android:id="@+id/recommend_message_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#98A2B3"
+                    android:text="메세지를 생성중입니다."
+                    app:layout_constraintTop_toBottomOf="@id/recommend_tv"
+                    app:layout_constraintStart_toStartOf="@id/flower_name_tv"/>
+
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/when_false_cl"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/recommend_message_tv">
+
+
+
+                <TextView
+                    android:id="@+id/aboout_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textAlignment="center"
+                    android:textColor="#101828"
+                    android:text="About plant "
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="34dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:layout_marginHorizontal="24dp"
+                    android:id="@+id/flower_information_tv"
+                    android:layout_width="match_parent"
+                    android:breakStrategy="simple"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#98A2B3"
+                    android:text="추천 꽃을 분석 중..."
+                    app:layout_constraintTop_toBottomOf="@id/aboout_tv"
+                    app:layout_constraintStart_toStartOf="@id/aboout_tv"/>
+                <TextView
+                    android:id="@+id/symbol_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textAlignment="center"
+                    android:textColor="#101828"
+                    android:layout_marginTop="34dp"
+                    android:text="About Symbol "
+                    app:layout_constraintTop_toBottomOf="@id/flower_information_tv"
+                    app:layout_constraintStart_toStartOf="@id/aboout_tv"/>
+
+                <TextView
+                    android:layout_marginHorizontal="24dp"
+                    android:id="@+id/flower_symbol_tv"
+                    android:layout_width="match_parent"
+                    android:breakStrategy="simple"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#98A2B3"
+                    android:layout_marginBottom="30dp"
+                    android:text="추천 꽃을 분석 중..."
+                    app:layout_constraintTop_toBottomOf="@id/symbol_tv"
+                    app:layout_constraintStart_toStartOf="@id/aboout_tv"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

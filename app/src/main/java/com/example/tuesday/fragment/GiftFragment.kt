@@ -51,7 +51,7 @@ class GiftFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentGiftBinding.inflate(layoutInflater)
         val name = arguments?.getString("name")
-        binding.userTv.text = name
+        binding.userTv.text = name+"님"
 
         initData()
         initRecyclerView()

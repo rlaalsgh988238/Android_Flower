@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.Purchase3Activity">
+    <TextView
+        android:id="@+id/select2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="결제가 완료되었어요! "
+        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="24sp"
+        android:layout_marginTop="40dp"
+        app:layout_goneMarginTop="78dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+        android:id="@+id/done_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/select2_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/confiiirmed"
+        android:layout_marginTop="62dp"/>
+    <ImageView
+        android:id="@+id/back_to_home_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_button"
+        android:layout_marginBottom="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

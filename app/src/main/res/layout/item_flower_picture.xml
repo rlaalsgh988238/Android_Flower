@@ -27,7 +27,7 @@
         android:id="@+id/flower_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jade plant"
+        android:text="장미"
         android:textColor="#101828"
         android:fontFamily="@font/poppins_semibold"
         android:textAlignment="center"

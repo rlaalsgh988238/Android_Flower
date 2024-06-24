@@ -1,6 +1,7 @@
 package com.example.tuesday.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -25,9 +26,14 @@ class SavedAdapter(val context: Context, val items: ArrayList<SavedData>) :
     inner class ViewHolder(val binding: ItemFlowerPictureBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: SavedData) {
+
+            Log.d("namename",item.flowerName)
+
             binding.flowerNameTv.text = item.flowerName
+            binding.priceTv.text=item.price
             binding.flowerPicIv.setImageResource(item.flowerImg)
             binding.likeIv.setImageResource(R.drawable.like_on_small)
+
             binding.likeIv.setOnClickListener {
 
                 binding.likeIv.setImageResource(R.drawable.liked_off)

@@ -26,6 +26,12 @@ class SavedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=ActivitySavedBinding.inflate(layoutInflater)
 
+        binding.backIv.setOnClickListener {
+            finish()
+        }
+        binding.backTv.setOnClickListener {
+            finish()
+        }
 
         if (SavedHandler.savedlist.isEmpty()){
 
