@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.Data.EventData
+import com.example.tuesday.Object.EventDataHolder
 import com.example.tuesday.R
 import com.example.tuesday.adapter.UserEventAdapter
 import com.example.tuesday.databinding.FragmentUserEventBinding
@@ -28,24 +29,23 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.IOException
 
+class UserEventFragment : Fragment() {
 
-class UserEventFragment() : Fragment() {
-
-    private var itemlist:ArrayList<EventData> = arrayListOf()
-    private var userEventAdapter:UserEventAdapter ?=null
+    private lateinit var userEventAdapter: UserEventAdapter
     private lateinit var binding: FragmentUserEventBinding
-    private var todayBtn:Boolean=true
-    private var weekBtn:Boolean=false
-    private var monthBtn:Boolean=false
-    private var currentMonth:Int?=null
-    private var currentDay:Int?=null
+    private var todayBtn: Boolean = true
+    private var weekBtn: Boolean = false
+    private var monthBtn: Boolean = false
+
+    private var currentMonth: Int? = null
+    private var currentDay: Int? = null
 
     private lateinit var credential: GoogleAccountCredential
     private lateinit var calendarService: Calendar
     private lateinit var jsonFactory: JsonFactory
     private lateinit var transport: com.google.api.client.http.HttpTransport
 
-    private var btnState:String="today"
+    private val btnState: String = "today"
     private val SCOPES = listOf(CalendarScopes.CALENDAR_READONLY)
     private val REQUEST_AUTHORIZATION = 1001
 
@@ -56,12 +56,12 @@ class UserEventFragment() : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentUserEventBinding.inflate(inflater, container, false)
         val calendar = java.util.Calendar.getInstance()
-         currentMonth= calendar.get(java.util.Calendar.MONTH) + 1
+        currentMonth = calendar.get(java.util.Calendar.MONTH) + 1
         currentDay = calendar.get(java.util.Calendar.DAY_OF_MONTH)
 
         initRecyclerView()
         btnColorChange()
-        setBtncolor()
+        setBtnColor()
         getSelectedDate()
         return binding.root
     }
@@ -69,91 +69,92 @@ class UserEventFragment() : Fragment() {
     private fun getSelectedDate() {
         binding.calendarCv.setOnDateChangeListener { view, year, month, dayOfMonth ->
             val selectedDate = "${year}-${month + 1}-${dayOfMonth}"
-            currentMonth=month+1
-            currentDay=dayOfMonth
-            userEventAdapter?.setDate(currentMonth!!, currentDay!!)
-            //여기서 month랑 date만 보내기
+            currentMonth = month + 1
+            currentDay = dayOfMonth
+            userEventAdapter.setDate(currentMonth!!, currentDay!!)
+            // 여기서 month랑 date만 보내기
         }
     }
 
-    private fun setBtncolor() {
-        //today
-        if(todayBtn){
-            //참이면 이렇게 거짓이면 다르게
+    private fun setBtnColor() {
+        // today
+        if (todayBtn) {
+            // 참이면 이렇게 거짓이면 다르게
             binding.todayBtn.setBackgroundColor(Color.parseColor("#475E3E"))
             binding.todayTv.setTextColor((Color.parseColor("#FFFFFF")))
-        }else{
+        } else {
             binding.todayBtn.setBackgroundColor(Color.parseColor("#F0F4EF"))
             binding.todayTv.setTextColor((Color.parseColor("#475E3E")))
         }
-        //week
-        if(weekBtn){
-            //참이면 이렇게 거짓이면 다르게
+        // week
+        if (weekBtn) {
+            // 참이면 이렇게 거짓이면 다르게
             binding.weekBtn.setBackgroundColor(Color.parseColor("#475E3E"))
             binding.weekTv.setTextColor((Color.parseColor("#FFFFFF")))
-        }else{
+        } else {
             binding.weekBtn.setBackgroundColor(Color.parseColor("#F0F4EF"))
             binding.weekTv.setTextColor((Color.parseColor("#475E3E")))
         }
 
-        //month
-        if(monthBtn){
-            //참이면 이렇게 거짓이면 다르게
+        // month
+        if (monthBtn) {
+            // 참이면 이렇게 거짓이면 다르게
             binding.monthBtn.setBackgroundColor(Color.parseColor("#475E3E"))
             binding.monthTv.setTextColor((Color.parseColor("#FFFFFF")))
-        }else{
+        } else {
             binding.monthBtn.setBackgroundColor(Color.parseColor("#F0F4EF"))
             binding.monthTv.setTextColor((Color.parseColor("#475E3E")))
         }
     }
 
     private fun btnColorChange() {
-        binding.todayBtn.setOnClickListener{
-            if(!todayBtn){
-                todayBtn=true
-                weekBtn=false
-                monthBtn=false
-                setBtncolor()
-                userEventAdapter?.setState("today") // 버튼 상태에 따라서 btnState 업데이트
-
+        binding.todayBtn.setOnClickListener {
+            if (!todayBtn) {
+                todayBtn = true
+                weekBtn = false
+                monthBtn = false
+                setBtnColor()
+                userEventAdapter.setState("today") // 버튼 상태에 따라서 btnState 업데이트
             }
         }
-        binding.weekBtn.setOnClickListener{
-            if(!weekBtn){
-                todayBtn=false
-                weekBtn=true
-                monthBtn=false
-                setBtncolor()
-                userEventAdapter?.setState("week") // 버튼 상태에 따라서 btnState 업데이트
-
+        binding.weekBtn.setOnClickListener {
+            if (!weekBtn) {
+                todayBtn = false
+                weekBtn = true
+                monthBtn = false
+                setBtnColor()
+                userEventAdapter.setState("week") // 버튼 상태에 따라서 btnState 업데이트
             }
         }
-        binding.monthBtn.setOnClickListener{
-            if(!monthBtn){
-                todayBtn=false
-                weekBtn=false
-                monthBtn=true
-                setBtncolor()
-                userEventAdapter?.setState("month") // 버튼 상태에 따라서 btnState 업데이트
-
+        binding.monthBtn.setOnClickListener {
+            if (!monthBtn) {
+                todayBtn = false
+                weekBtn = false
+                monthBtn = true
+                setBtnColor()
+                userEventAdapter.setState("month") // 버튼 상태에 따라서 btnState 업데이트
             }
         }
     }
 
     private fun initRecyclerView() {
-        userEventAdapter= UserEventAdapter(requireContext(),itemlist,btnState,
-            currentMonth!!, currentDay!!
-        )
-        binding.eventRv.adapter=userEventAdapter
-        binding.eventRv.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        // itemList 초기화
+        EventDataHolder.itemList = ArrayList()
 
-        Log.d("itemList",itemlist.toString())
+        userEventAdapter = UserEventAdapter(requireContext(), EventDataHolder.itemList, btnState, currentMonth!!, currentDay!!)
+        binding.eventRv.adapter = userEventAdapter
+        binding.eventRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        Log.d("itemList", EventDataHolder.itemList.toString())
         binding.eventRv.addItemDecoration(SpaceItemDecoration(25))
 
-        userEventAdapter!!.setOnItemClickListener(object :UserEventAdapter.OnItemClickListener{
-            override fun onItemClick(eventName:String) {
+        userEventAdapter.setOnItemClickListener(object : UserEventAdapter.OnItemClickListener {
+            override fun onItemClick(eventName: String) {
+                Log.d("thisclicked", eventName)
+             //TODO:실행만 넣기
 
-                Log.d("thisclicked",eventName)
+
+
             }
         })
     }
@@ -167,14 +168,12 @@ class UserEventFragment() : Fragment() {
 
         // Google Calendar API 초기화
         try {
-
-            // Google Calendar API 초기화
             transport = com.google.api.client.http.javanet.NetHttpTransport()
             jsonFactory = JacksonFactory.getDefaultInstance()
             credential = GoogleAccountCredential.usingOAuth2(requireContext(), SCOPES)
 
             // login_page에서 전달한 이메일을 받아 설정
-     val email = arguments?.getString("email")
+            val email = arguments?.getString("email")
 
             credential.selectedAccountName = email
             Log.d("GoogleAccountCredential", "Selected account: ${credential.selectedAccountName}")
@@ -191,10 +190,9 @@ class UserEventFragment() : Fragment() {
             loadEventsFromAllCalendars()
 
         } catch (e: Exception) {
-            Log.d("fail","fail")
+            Log.d("fail", "fail")
             e.printStackTrace()
         }
-
     }
 
     private fun loadEventsFromAllCalendars() {
@@ -218,7 +216,7 @@ class UserEventFragment() : Fragment() {
                 for (event in allEvents) {
                     val start = event.start?.dateTime ?: event.start?.date
                     val end = event.end?.dateTime ?: event.end?.date
-                    itemlist.add(EventData(event.summary,start.toString(),end.toString()))
+                    EventDataHolder.itemList.add(EventData(event.summary, start.toString(), end.toString()))
                     Log.d("Event summary", "${event.summary}")
                     Log.d("Event start", "$start")
                     Log.d("Event end", "$end")
@@ -226,8 +224,7 @@ class UserEventFragment() : Fragment() {
 
                 // UI 업데이트는 메인 스레드에서 처리해야 함
                 withContext(Dispatchers.Main) {
-
-                    userEventAdapter?.notifyDataSetChanged()
+                    userEventAdapter.notifyDataSetChanged()
                 }
             } catch (e: UserRecoverableAuthIOException) {
                 // 사용자 인증 문제 처리
@@ -238,7 +235,6 @@ class UserEventFragment() : Fragment() {
                 Log.d("err", "IOException 발생")
                 e.printStackTrace()
             }
-
         }
     }
 
@@ -254,10 +250,10 @@ class UserEventFragment() : Fragment() {
             }
         }
     }
+
     class SpaceItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
             outRect.bottom = space
         }
     }
-
 }

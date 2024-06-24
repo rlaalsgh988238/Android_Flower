@@ -24,7 +24,14 @@ class MainViewPagerAdapter (fragmentActivity: FragmentActivity, private val emai
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> GiftFragment()
+            0 -> {
+                val fragment = GiftFragment()
+                val bundle = Bundle()
+                bundle.putString("email", email)
+                bundle.putString("name", name)
+                fragment.arguments = bundle
+                fragment
+            }
             1 -> {
                 val fragment = UserEventFragment()
                 val bundle = Bundle()
