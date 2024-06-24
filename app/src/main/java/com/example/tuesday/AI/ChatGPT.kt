@@ -2,6 +2,7 @@ package com.example.tuesday.AI
 
 import android.util.Log
 import com.example.tuesday.AI.model.ApiResponse
+import com.example.tuesday.AI.model.Flower
 import com.example.tuesday.AI.model.Message
 import com.example.tuesday.AI.model.RequestBody
 import com.example.tuesday.AI.model.ResponseContent
@@ -11,6 +12,7 @@ import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.ArrayList
 import java.util.Objects
 import java.util.concurrent.CountDownLatch
 
@@ -21,7 +23,7 @@ class ChatGPT {
         Message(role = "user", content = "엄마 생일")
     )
 
-    fun getFlowerData(calendarData: String, callback: (FlowerData?) -> Unit) {
+    fun getFlowerData(calendarData: String, callback: (RecommendFlowerData?) -> Unit) {
         // 사용자 메시지를 업데이트
         messages = messages.map { message ->
             if (message.role == "user") {
@@ -31,7 +33,6 @@ class ChatGPT {
             }
         }
         val requestBody = RequestBody(model = "gpt-4o", messages = messages)
-
         RetrofitClient.api.createRequest(requestBody).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful) {
@@ -42,7 +43,7 @@ class ChatGPT {
                         val flowerInfo = content.flower?.let { flower ->
                             FlowerInfo(name = flower.name, symbolism = flower.symbolism, description = flower.description)
                         }
-                        val flowerData = FlowerData(
+                        val flowerData = RecommendFlowerData(
                             flowerEvent = content.flowerEvent ?: false,
                             event = content.event ?: "",
                             flower = flowerInfo ?: FlowerInfo("", "", ""),
@@ -63,10 +64,10 @@ class ChatGPT {
         })
     }
 
-    fun getEventData(calendarEvent: String): FlowerData{
+    fun getEventData(calendarEvent: String): RecommendFlowerData{
         val chatGPT = ChatGPT()
         val latch = CountDownLatch(1)
-        var flowerData: FlowerData? = null
+        var flowerData: RecommendFlowerData? = null
 
         chatGPT.getFlowerData(calendarEvent) { data ->
             flowerData = data
@@ -86,7 +87,7 @@ class ChatGPT {
         return flowerData!!
     }
 
-    fun getFlowerImage(flowerData: FlowerData): Int{
+    fun getFlowerImage(flowerData: RecommendFlowerData): Int{
         val flowerName = flowerData.flower.name
         Log.d("FlowerName: ",flowerName)
         return when(flowerName){
@@ -104,14 +105,27 @@ data class FlowerInfo(
     var symbolism: String,
     var description: String
 )
-data class FlowerData(
+data class RecommendFlowerData(
     var flowerEvent: Boolean,
     var event: String,
     var flower: FlowerInfo,
     var message: String
 )
 
+object LikeRecommend{
+    var recommendList = ArrayList<RecommendFlowerData>()
+    public fun putFlowerData(flowerData: RecommendFlowerData){
+        recommendList.add(flowerData)
+        Log.d("recommendList", recommendList.toString())
+    }
+
+    public fun deleteFlowerData(flowerData: RecommendFlowerData){
+        recommendList.remove(flowerData)
+        Log.d("recommendList", recommendList.toString())
+    }
+}
+
 fun main() {
     val chatGPT = ChatGPT()
-    chatGPT.getEventData("종강 술파티")
+    chatGPT.getEventData("정안 생일")
 }
