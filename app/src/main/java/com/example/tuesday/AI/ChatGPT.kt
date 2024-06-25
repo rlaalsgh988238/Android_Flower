@@ -94,9 +94,9 @@ class ChatGPT {
             "장미" -> R.drawable.rose_big
             "카네이션" -> R.drawable.cane_big
             "백합" -> R.drawable.back_big
-            "진달래" -> R.drawable.pink_jindale
+            "진달래" -> R.drawable.flower_none
 
-            else -> R.drawable.flower_combine1
+            else -> R.drawable.flower_none
         }
     }
     fun getFlowerImageSmaller(flowerData: RecommendFlowerData): Int{
