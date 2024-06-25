@@ -31,6 +31,21 @@
             android:name=".activity.FlowerDetailActivity"
             android:exported="false"/>
         <activity
+            android:name=".activity.PurchaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SavedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ReselectActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SelectFavorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.PrivacyActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.TestCalActivity"
             android:exported="false" />
         <activity

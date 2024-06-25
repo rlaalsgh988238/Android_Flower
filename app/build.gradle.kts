@@ -96,7 +96,6 @@ dependencies {
     implementation("androidx.credentials:credentials:1.3.0-alpha01")
 
 
-    //SlidingUppannel
 
 }
 

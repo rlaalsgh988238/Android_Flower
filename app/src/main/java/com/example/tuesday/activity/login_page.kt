@@ -86,18 +86,18 @@ class login_page : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
-                val intent: Intent = Intent(this, MainActivity::class.java)//예시로 해놓은것이니 고쳐야함
+                val intent: Intent = Intent(this, SelectFavorActivity::class.java)//예시로 해놓은것이니 고쳐야함
                 //어디로 보낼지 저ㄱ는코드
                 //이메일을 보내고 있는데 사용자 이름 받아서 보내는것도 하자
                 intent.putExtra("email", account.email)
                 intent.putExtra("account",account)
                 intent.putExtra("name", account.displayName) // 사용자 이름 추가
                 Toast.makeText(this, "성공", Toast.LENGTH_SHORT).show()
+                finish()
                 startActivity(intent)
             } else {
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }
-
 }
