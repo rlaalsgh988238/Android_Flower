@@ -33,12 +33,12 @@ object SavedHandler {
         var price = (1..3).random()
 
         when(flowerName){
-            "장미" -> price = 62000
-            "백합" -> price = 88000
-            "카네이션" -> price = 62000
-            else -> price = 60000+price*10000
+            "장미" -> price = 62
+            "백합" -> price = 88
+            "카네이션" -> price = 62
+            else -> price = 60+price*10
         }
-        val result = price.toString() + "원"
+        val result = price.toString() + ",000원"
 
         return result
     }

@@ -1,17 +1,25 @@
 package com.example.tuesday.fragment
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Rect
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.Data.EventData
+import com.example.tuesday.MainActivity
 import com.example.tuesday.Object.EventDataHolder
 import com.example.tuesday.R
 import com.example.tuesday.activity.FlowerDetailActivity
@@ -218,7 +226,12 @@ class UserEventFragment : Fragment() {
                 for (event in allEvents) {
                     val start = event.start?.dateTime ?: event.start?.date
                     val end = event.end?.dateTime ?: event.end?.date
-                    EventDataHolder.itemList.add(EventData(event.summary, start.toString(), end.toString()))
+                    val startYear = start.toString().substring(0, 4)
+                    if(startYear=="2025"){
+                        continue
+                    }else{
+                        EventDataHolder.itemList.add(EventData(event.summary, start.toString(), end.toString()))
+                    }
                     Log.d("Event summary", "${event.summary}")
                     Log.d("Event start", "$start")
                     Log.d("Event end", "$end")

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tuesday.databinding.ItemEventBinding
 import com.example.tuesday.Data.EventData
+import com.google.android.play.integrity.internal.i
 
 class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, var btnState:String, var currentMonth:Int, var currentDay:Int) :
     RecyclerView.Adapter<UserEventAdapter.ViewHolder>() {
@@ -26,7 +27,7 @@ class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, va
     }
     inner class ViewHolder(val binding: ItemEventBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: EventData) {
+        fun bind(item: EventData,position:Int) {
             Log.d("btnstateM",currentMonth.toString())
             Log.d("btnstateD",currentDay.toString())
             Log.d("btnstateB",btnState.toString())
@@ -63,11 +64,10 @@ class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, va
                     binding.eventTv.text = item.eventName
                     binding.layoutCl.setOnClickListener{
                         itemClickListener.onItemClick(item.eventName)
-
                     }
-
                 } else {
                     binding.root.visibility = View.GONE
+
                 }
 
             }else if(btnState=="week"){
@@ -106,6 +106,7 @@ class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, va
                     binding.root.visibility = View.VISIBLE // 보이게 설정
                     binding.dateTv.text = date
                     binding.eventTv.text = item.eventName
+
 
                     binding.layoutCl.setOnClickListener{
                         itemClickListener.onItemClick(item.eventName)
@@ -147,7 +148,7 @@ class UserEventAdapter(val context: Context, val items: ArrayList<EventData>, va
     }
 
     override fun onBindViewHolder(holder: UserEventAdapter.ViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position],position)
     }
 
     override fun getItemCount(): Int {

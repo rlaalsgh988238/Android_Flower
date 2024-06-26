@@ -1,13 +1,21 @@
 package com.example.tuesday.activity
 
 import android.app.Activity
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.CalendarView
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tuesday.MainActivity
 import com.example.tuesday.R
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential
 import com.google.api.client.googleapis.extensions.android.gms.auth.UserRecoverableAuthIOException
@@ -126,4 +134,6 @@ class TestCalActivity : AppCompatActivity() {
         private const val REQUEST_AUTHORIZATION = 1001
         private val SCOPES = listOf(CalendarScopes.CALENDAR)
     }
+
+
 }

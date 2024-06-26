@@ -1,8 +1,17 @@
 package com.example.tuesday
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
+import com.example.tuesday.activity.PushActivity
 import com.example.tuesday.adapter.MainViewPagerAdapter
 import com.example.tuesday.calendar.UtilObject
 import com.example.tuesday.databinding.ActivityMainBinding
@@ -38,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         // ViewPager 설정 및 초기화
         val name = intent.getStringExtra("name") // 사용자 이름 받아오기
         binding.viewPager.adapter = MainViewPagerAdapter(this, email, name)
+        showNotification()
         binding.viewPager.isUserInputEnabled = false
         binding.viewPager.post {
             binding.viewPager.currentItem = 1
@@ -57,5 +67,42 @@ class MainActivity : AppCompatActivity() {
     }
     fun closeFragment() {
         finish()
+    }
+
+    fun showNotification() {
+        val CHANNEL_ID="tusday"
+        var notiId=0
+        val intent = Intent(this, PushActivity::class.java)
+        intent.putExtra("push",true)
+
+        val pendingIntent = PendingIntent.getActivity(this,0,intent,
+            PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_MUTABLE)
+
+        val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.tuesday_image)
+            .setContentTitle("FelizCalendar")
+            .setContentText("승주 생일이 얼마 안 남았어요! 생일 기념 꽃을 추천 받아보세요!")
+            .setAutoCancel(true)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setContentIntent(pendingIntent)
+
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                CHANNEL_ID,
+                "FelizCalendar",
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            channel.description = "알림"
+            channel.enableLights(true)
+            channel.lightColor = Color.GRAY
+            channel.enableVibration(true)
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        notificationManager.notify(notiId++ /* ID of notification */, notificationBuilder.build())
+
     }
 }
